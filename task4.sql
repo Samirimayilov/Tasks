@@ -68,3 +68,12 @@ desc cedvel;
 
 --DROP emri ile SEQUENCE siline biler
 DROP SEQUENCE MY_SEQUENCE;
+
+--DELETE emrinden istifade
+DELETE FROM CEDVEL WHERE cedvel.id = 2;
+
+--Cedvelin adinin deyisdirilmesi
+ALTER TABLE CEDVEL RENAME TO Cedvel1;
+
+--UPDATE emrinden istifade
+UPDATE cedvel1 SET C_NAME = 'Samir' WHERE CEDVEL1.ID = 1;
