@@ -58,11 +58,11 @@ INSERT INTO cedvel(name) VALUES ('John Doe');
 --Eger spesifik bir deyer daxil etmek isteyirsinizse onda deyerle birlikde yazilir
 INSERT INTO CEDVEL (ID,NAME) VALUES (2,'John doe');
 
---Sonraki deyerin daxil edilmesi
+--Sonraki deyerin göstərilməsi
 SELECT my_seq.NEXTVAL FROM cedvel ;
 
 
---Evvelki deyerin daxil edilmesi;
+--Evvelki deyerin göstərilməsi
 SELECT my_sequence.CURRVAL FROM cedvel;
 desc cedvel;
 
