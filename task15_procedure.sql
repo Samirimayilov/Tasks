@@ -1,4 +1,4 @@
-
+--task 1 Loanın bütün datalarını çıxart
 CREATE OR REPLACE PROCEDURE get_all_loan_data AS
 BEGIN
   FOR i IN (SELECT *
@@ -41,6 +41,7 @@ END;
 /
 EXEC loan_for_amount ;
 
+--task 2 loanda müəyyən aralıqda amountları olanların datalarını çıxart
 CREATE OR REPLACE PROCEDURE loan_for_avg_amount AS
 BEGIN
   FOR i IN (SELECT *
@@ -62,6 +63,7 @@ END;
 /
 EXEC loan_for_avg_amount ;
 
+--task 3 daxil edilən Gross salaryni Net salaryə çevir
 CREATE OR REPLACE PROCEDURE return_net_salary(gross_salary NUMBER) IS
 Net_SALARY NUMBER:=0;
 BEGIN
@@ -76,6 +78,7 @@ END;
 EXEC RETURN_NET_SALARY(7000);
 EXEC RETURN_NET_SALARY(9700);
 
+--Task 4 Daxil edilən fillial id üçün ortalama amountu çıxart
 CREATE OR REPLACE PROCEDURE get_avg_amount_for_filial(filial_id IN NUMBER) IS
  AVG_amount NUMBER;
 BEGIN
