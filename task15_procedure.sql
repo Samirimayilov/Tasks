@@ -97,3 +97,51 @@ END;
 
 
 SELECT AVG(AMOUNT) FROM LOAN WHERE FILIAL_ID =1;
+
+CREATE OR REPLACE PROCEDURE BEST_WORKER 
+AS 
+BEGIN
+  FOR i IN (SELECT *
+            FROM loan where INTEREST_RATE > (select avg(INTEREST_RATE) from loan))
+  LOOP
+    DBMS_OUTPUT.PUT_LINE(
+    i.contract_id || ', ' || 
+    i.act_date || ', ' || 
+    i.first_name || ', ' || 
+    i.last_name || ', ' || 
+    i.amount || ', ' || 
+    i.currency_id || ', ' ||
+    i.interest_rate || ', ' ||
+    i.filial_id || ', ' || 
+    i.commission || ', ' || 
+    i.email);
+  END LOOP;
+END;
+/
+DECLARE
+BEGIN
+  BEST_WORKER;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE loan_for_amount(
+MAX_AMOUNT NUMBER,MIN_AMOUNT NUMBER) AS
+BEGIN
+  FOR i IN (SELECT *
+            FROM loan where amount between MIN_AMOUNT and MAX_AMOUNT)
+  LOOP
+    DBMS_OUTPUT.PUT_LINE(
+    i.contract_id || ', ' || 
+    i.act_date || ', ' || 
+    i.first_name || ', ' || 
+    i.last_name || ', ' || 
+    i.amount || ', ' || 
+    i.currency_id || ', ' ||
+    i.interest_rate || ', ' ||
+    i.filial_id || ', ' || 
+    i.commission || ', ' || 
+    i.email);
+  END LOOP;
+END;
+/
+EXEC loan_for_amount(10000,7000);
